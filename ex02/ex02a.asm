@@ -16,7 +16,7 @@
 
 ; VARIÁVEIS
         CBLOCK  0X00                ; BANCO DE ACESSO
-                CONTADOR		; ARMAZENA O VALOR DA CONTAGEM
+        	CONTADOR		; ARMAZENA O VALOR DA CONTAGEM
         ENDC
 
 #DEFINE	BOTAO_1	PORTB,0	; PINO DO BOTÃO_1
@@ -26,7 +26,7 @@
 	
 
 ;* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-;*                     INICIO DO PROGRAMA                 		   *
+;*                     INICIO DO PROGRAMA                 	   *
 ;* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 INICIO
         MOVLW	B'00000001'
@@ -43,15 +43,15 @@ INICIO
 ;* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 MAIN
         BTFSC	BOTAO_1		; O BOTÃO_1 ESTÁ PRESSIONADO?
-        BRA		MAIN		; NÃO, VOLTA
-					; SIM
+        BRA	MAIN		; NÃO, VOLTA
+				; SIM
         INCF	CONTADOR,F	; INCREMENTA O CONTADOR
         MOVF	CONTADOR,W	; COLOCA CONTADOR EM W
         MOVWF	LATD		; ATUALIZA O PORTD
 
 ESPERA
         BTFSS	BOTAO_1		; O BOTÃO CONTINUA PRESSIONADO?
-        BRA		ESPERA		; SIM, ENTÃO ESPERA LIBERAÇÃO
-        BRA		MAIN		; NÃO, VOLTA AO LOOP PRINCIPAL
+        BRA	ESPERA		; SIM, ENTÃO ESPERA LIBERAÇÃO
+        BRA	MAIN		; NÃO, VOLTA AO LOOP PRINCIPAL
 
-        END					; FIM DO PROGRAMA
+        END			; FIM DO PROGRAMA
