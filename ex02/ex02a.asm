@@ -3,7 +3,7 @@
 ; (a) Pressionando e liberando o botão
 
 ; * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-; *                  CONFIGURAÇÕES			 						*
+; *                  CONFIGURAÇÕES			 	    *
 ; * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 ; Deve-se iniciar a linha abaixo com tabulação
 	CONFIG  FOSC = HS, WDT = OFF, PBADEN = OFF, LVP = OFF
