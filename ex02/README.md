@@ -7,4 +7,4 @@ em `PORTD,0` a `PORTD,3` respectivamente. Utilize duas abordagens:
 a. (a) Execute a função do botão somente após este ser pressionado e liberado.
 a. (b) Utilize um atraso para o botão ser considerado pressionado.
 
-![circuito_ex01](https://github.com/user-attachments/assets/f78fa427-a56b-499d-954a-6a2faae66478)
+![circ_ex02_picsim](https://github.com/user-attachments/assets/3aec42fb-22dc-455e-9f9d-8cd84acfe51b)
