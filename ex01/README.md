@@ -7,5 +7,6 @@ estiver pressionado, o led D1 (em `PORTD,0`) fique aceso.
 
 Considera-se o fluxograma abaixo para a implementação do algoritmo.
 
-![ex01_fluxograma](https://github.com/user-attachments/assets/e37dce41-178c-4fdf-b8f0-a033774e1574)
+![ex01_fluxograma](https://github.com/user-attachments/assets/bf696b8b-e329-49e0-b775-5fd0898262d6)
+
 Fonte: W. S. Zanco. Microcontroladores PIC18 com Linguagem C: Uma Abordagem Prática e Objetiva com base no PIC18F4520. São Paulo: Érica, 2010.
