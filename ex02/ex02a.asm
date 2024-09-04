@@ -1,39 +1,39 @@
 ; ET37I - Sistemas Microcontrolados
 ; Ex. 2 - Contador com leds (Assembly) PICSimLab
-; (a) Pressionando e liberando o bot„o
+; (a) Pressionando e liberando o bot√£o
 
 ; * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-; *                  CONFIGURA«’ES			 						*
+; *                  CONFIGURA√á√ïES		   		    *
 ; * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-; Deve-se iniciar a linha abaixo com tabulaÁ„o
+; Deve-se iniciar a linha abaixo com tabula√ß√£o
 	CONFIG  FOSC = HS, WDT = OFF, PBADEN = OFF, LVP = OFF
 ; FOSC = HS		Oscilador de 20MHz -> Tcy = 200ns
 ; WDT = OFF		WDT desabilitado
-; PBADEN = OFF	Pinos de PORTB [4:0] como I/O digital
-; LVP = OFF		GravaÁ„o em modo de baixa tens„o desabilitada
+; PBADEN = OFF		Pinos de PORTB [4:0] como I/O digital
+; LVP = OFF		Grava√ß√£o em modo de baixa tens√£o desabilitada
 
 #INCLUDE <P18F4550.INC> 
 
-; VARI¡VEIS
-    CBLOCK  0X00    	; BANCO DE ACESSO
-		CONTADOR		; ARMAZENA O VALOR DA CONTAGEM
+; VARI√ÅVEIS
+    CBLOCK  0X00    		; BANCO DE ACESSO
+	CONTADOR		; ARMAZENA O VALOR DA CONTAGEM
     ENDC
 
-#DEFINE	BOTAO_1	PORTB,0	; PINO DO BOT√O_1
+#DEFINE	BOTAO_1	PORTB,0		; PINO DO BOT√ÉO_1
 
-	ORG	0x00			; ENDERE«O INICIAL DO PROGRAMA
+	ORG	0x00		; ENDERE√áO INICIAL DO PROGRAMA
 	GOTO	INICIO
 	
 
 ;* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-;*                     INICIO DO PROGRAMA                 		   *
+;*                     INICIO DO PROGRAMA              		   *
 ;* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 INICIO
 	MOVLW	B'00000001'
 	MOVWF	TRISB
-	CLRF	TRISD		; DEFINE TODO O PORTD COMO SAÕDA
+	CLRF	TRISD		; DEFINE TODO O PORTD COMO SA√çDA
 	CLRF	INTCON2		; PULL-UPS HABILITADOS
-	CLRF	INTCON		; TODAS AS INTERRUP«’ES DESLIGADAS
+	CLRF	INTCON		; TODAS AS INTERRUP√á√ïES DESLIGADAS
 	
 	CLRF	LATD		; INICIA PORTD COM LEDS APAGADOS
 	CLRF	CONTADOR	; INICIA CONTADOR = 0
@@ -42,17 +42,17 @@ INICIO
 ;*                     ROTINA PRINCIPAL                      	   *
 ;* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 MAIN
-	BTFSC	BOTAO_1		; O BOT√O_1 EST¡ PRESSIONADO?
-	BRA		MAIN		; N√O, VOLTA
-						; SIM
+	BTFSC	BOTAO_1		; O BOT√ÉO_1 EST√Å PRESSIONADO?
+	BRA	MAIN		; N√ÉO, VOLTA
+				; SIM
 	INCF	CONTADOR,F	; INCREMENTA O CONTADOR
 	MOVF	CONTADOR,W	; COLOCA CONTADOR EM W
 	MOVWF	LATD		; ATUALIZA O PORTD
 
 ESPERA
-	BTFSS	BOTAO_1		; O BOT√O CONTINUA PRESSIONADO?
-	BRA		ESPERA		; SIM, ENT√O ESPERA LIBERA«√O
-	BRA		MAIN		; N√O, VOLTA AO LOOP PRINCIPAL
+	BTFSS	BOTAO_1		; O BOT√ÉO CONTINUA PRESSIONADO?
+	BRA	ESPERA		; SIM, ENT√ÉO ESPERA LIBERA√á√ÉO
+	BRA	MAIN		; N√ÉO, VOLTA AO LOOP PRINCIPAL
 
-	END					; FIM DO PROGRAMA
+	END			; FIM DO PROGRAMA
 
